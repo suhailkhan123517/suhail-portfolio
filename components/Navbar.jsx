@@ -9,6 +9,13 @@ import { useRouter } from "next/navigation";
 const capitalizeWords = (inputString) => {
   if (!inputString) return "";
   const word = inputString.split(" ");
+
+  // Check if there are more than two words
+  if (word.length > 2) {
+    // If more than two words, trim the array to the first two words
+    word.length = 2;
+  }
+
   const capitalizeWord = word.map((word) => {
     if (word.length > 0) {
       return word[0].toUpperCase() + word.slice(1).toLowerCase();
@@ -31,7 +38,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <>
-      <nav className="flex items-center justify-between py-3">
+      <nav className="flex items-center justify-between py-3 ">
         <Link href="/" className="flex items-center justify-center gap-3">
           <Image
             src="/assets/images/logo.svg"

@@ -17,9 +17,7 @@ const authOptions = {
   ],
   callbacks: {
     async signIn({ user, account }) {
-      console.log("User:", user);
-      console.log("Account", account);
-      if (account.provider === "google") {
+      if (account.provider === "google" || account.provider === "github") {
         const { name, email } = user;
         try {
           await connectMongoDB();

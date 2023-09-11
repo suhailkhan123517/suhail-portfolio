@@ -6,11 +6,10 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
-  const router = useRouter();
   return (
     <>
-      <div className="flex items-center justify-center">
-        <div className="bg-white shadow-2xl p-10 w-[40%] rounded-3xl">
+      <div className="flex items-center justify-center mt-10">
+        <div className="bg-white shadow-2xl py-6  px-10 w-[40%] rounded-3xl">
           <div className="flex items-center gap-5">
             <Image
               src="/assets/images/logo.svg"
@@ -23,14 +22,14 @@ const LoginForm = () => {
               Portfolio
             </span>
           </div>
-          <h1 className="font-satoshi font-semibold text-2xl text-black tracking-wide mt-5">
+          <h1 className="font-satoshi font-semibold text-xl text-black tracking-wide mt-3">
             Sign in
           </h1>
-          <p className="text-lg text-gray-600 mt-2">to continue to Portfolio</p>
+          <p className="text-lg text-gray-600">to continue to Portfolio</p>
 
           <button
             onClick={() => signIn("github", { callbackUrl: "/" })}
-            className="mt-10 border border-gray-300 py-3 px-4 w-full flex items-center justify-between rounded-md hover:bg-gray-200 transition duration-300 group"
+            className="mt-3 border border-gray-300 py-2 px-4 w-full flex items-center justify-between rounded-md hover:bg-gray-200 transition duration-300 group"
           >
             <Image
               src="/assets/images/github.svg"
@@ -46,7 +45,7 @@ const LoginForm = () => {
             onClick={() => {
               signIn("google", { callbackUrl: "/" });
             }}
-            className="mt-3 border border-gray-300 py-3 px-4 w-full flex items-center justify-between rounded-md hover:bg-gray-200 transition duration-300 group"
+            className="mt-2 border border-gray-300 py-2 px-4 w-full flex items-center justify-between rounded-md hover:bg-gray-200 transition duration-300 group"
           >
             <Image
               src="/assets/images/google.svg"
@@ -59,29 +58,29 @@ const LoginForm = () => {
             <BsArrowRight className="opacity-0 group-hover:opacity-100 transition duration-300 group group-hover:translate-x-2" />
           </button>
 
-          <div className="text-center my-4">or</div>
+          <div className="text-center my-2">or</div>
 
           <form>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <label className="text-black font-medium">Email Address</label>
               <input
                 type="text"
-                className="border border-gray-300 py-3 px-4 rounded-md"
+                className="border border-gray-300 py-2 px-4 rounded-md"
               />
             </div>
-            <div className="flex flex-col gap-2 mt-4">
+            <div className="flex flex-col gap-1 mt-2">
               <label className="text-black font-medium">Password</label>
               <input
                 type="text"
-                className="border border-gray-300 py-3 px-4 rounded-md"
+                className="border border-gray-300 py-2 px-4 rounded-md"
               />
             </div>
-            <button className="bg-gray-800 hover:bg-black w-full mt-5 p-4 rounded-md text-white transition duration-300">
+            <button className="bg-gray-800 hover:bg-black w-full mt-3 p-3 rounded-md text-white transition duration-300">
               Continue
             </button>
           </form>
 
-          <p className="mt-6 text-gray-500">
+          <p className="mt-4 text-gray-500">
             No Account ?{" "}
             <Link href="/sign-up" className="text-[#ff5722] hover:underline">
               Sign up
