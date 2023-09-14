@@ -31,6 +31,21 @@ const RegisterForm = () => {
     e.preventDefault();
 
     try {
+      const userExsits = await fetch("api/userExists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user.email),
+      });
+
+      const { existsUser } = await userExsits.json();
+
+      if (existsUser) {
+        toast.error("User already Registered");
+        return;
+      }
+
       const res = await fetch("api/register", {
         method: "POST",
         headers: {
@@ -46,9 +61,9 @@ const RegisterForm = () => {
           email: "",
           password: "",
         });
-        toast.success(message);
+        toast.success("User successfully registered");
       } else {
-        toast.error(message);
+        toast.error("User registration failed");
       }
     } catch (error) {
       console.log("Error during registration", error);
@@ -172,9 +187,9 @@ const RegisterForm = () => {
           </form>
 
           <p className="mt-4 text-gray-500">
-            No Account ?{" "}
+            I have Account !{" "}
             <Link href="/sign-in" className="text-[#ff5722] hover:underline">
-              Sign up
+              Sign in
             </Link>{" "}
           </p>
         </div>
